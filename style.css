@@ -1,0 +1,283 @@
+@font-face { 
+    font-family: "PattayaRegular";
+    src: url("fonts/Pattaya-Regular.ttf") format("truetype");
+    font-style: bold;
+    font-weight: 400;
+}
+
+
+html {
+    background: url(images/background-image.png);
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    white-space: nowrap;
+
+}
+
+.logo {
+    font-family: 'PattayaRegular', serif;
+    color:red;
+    font-size: 60px;
+    -webkit-text-stroke: 2px #00FF66;
+    margin-left: 30px;
+}
+
+.logo:hover {
+    color:#00FF66;
+    -webkit-text-stroke: 3px red;
+    cursor: default;
+}
+
+
+
+.navigation_panel_element {
+    font-family: 'PattayaRegular', serif;
+    color:#ffffff;
+    font-size: 40px;
+    position: relative;
+    margin-left: 14%;
+}
+
+.navigation_panel_element_practise {
+    color:#ffffff;
+}
+
+.practise {
+    display: inline-block;
+}
+
+#pen {
+    padding-left: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.navigation_panel_element:hover:before {
+    transform: scaleX(1);
+    transition: 0.45s;
+}
+
+.navigation_panel_element::before {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    transform: scaleX(0);
+    transition: 0.25s;
+}
+
+/* Окно событий */
+.main_frame {
+    background-color: white;
+    border-radius: 3rem;
+    height: 620px;
+    margin: 1% 11% 0% 11%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.main_frame_profile {
+    align-items: normal;
+}
+/* Регистрация и авторизация */
+
+.registration_form {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 100%;
+    font-family: 'PattayaRegular', serif;
+    justify-content: center;
+}
+
+.text_fields {
+    margin-top: 2%;
+    border:2px solid #0075FF;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #0075FF;
+}
+
+input {
+    margin: 23px 0;
+    border: none;
+    text-align: center;
+    font-family: 'PattayaRegular', serif;
+    font-size: 20px;
+    color: black;
+    outline: none;
+    position: relative;
+}
+
+input::placeholder {
+    color:#0075FF;
+}
+
+input:focus::placeholder {
+    color: black; 
+}
+
+h1 {
+    text-align: center;
+    font-size: 35px;
+}
+
+label {
+    color:red;
+    text-decoration: underline;
+    font-size: 18px;
+    text-align: center;
+    cursor: default;
+}
+
+button {
+    margin: 40px 3%;
+    border-radius: 10px;
+    font-family: 'PattayaRegular', serif;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    background-color: #0075FF;
+    border:2px solid white;
+}
+
+button:hover {
+    box-shadow: 0 0 25px #0075FF;
+    transition: 0.45s;
+}
+
+.ref_to_registration {
+    margin: 0;
+    color:black;
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    text-decoration: underline transparent;
+}
+
+.ref_to_registration:hover{
+    text-decoration: underline; 
+    transition: 0.5s;
+}
+
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    /*padding-left: 10%; */
+    position: relative;
+}
+
+.avatar_image {
+    width: 300px;
+    height: 300px;
+    background-repeat: no-repeat;
+}
+
+#noselect {
+    border: none;
+    font-family: 'PattayaRegular', serif;
+    color:black;
+    font-size: 40px;
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    margin-top: 0;
+    margin-left: 10%;
+    overflow: visible;
+    
+}
+
+.avatar_and_name {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info_menu {
+    display: flex;
+    list-style: none;
+    font-family: 'PattayaRegular', serif;
+    font-size: 15px;
+    text-align: start;
+}
+
+.info_menu:hover {
+    display: flex;
+}
+
+.input_info {
+    margin: 0;
+    font-size: 15px;
+    text-align: start;
+    border: black;  
+    outline: #0075FF;
+} 
+
+.personal_status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.status_name {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    margin: 0;
+}
+
+progress {
+    margin-top: 2%;
+    -webkit-appearance: none;
+    width: 50%;
+    height: 20px;
+    color: #E53F3F;
+    border-radius: 13px;
+    &::-webkit-progress-bar {
+        background: #00FF66;
+    }
+    &::-webkit-progress-value {
+        background: #E53F3F;
+    }
+
+}
+
+.count_words {
+    font-family: 'PattayaRegular', serif;
+    font-size: 35px;
+    margin-top: 2%;
+}
+
+.logout {
+    margin: 0;
+    margin-bottom: 3%;
+    font-size: 20px;
+    background-color: #E53F3F;
+}
+
+.logout:hover {
+    box-shadow: 0 0 25px #E53F3F;
+    transition: 0.45s;
+}
+
+
+

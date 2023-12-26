@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        input {
+            position: relative;
+            border: none;
+            outline: none;
+        }
+
+        input::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease-out, left 0.3s ease-out;
+            /* Плавное изменение ширины и положения линии за 0.3 секунды */
+            transform-origin: center;
+            /* Устанавливаем точку преобразования в центр */
+        }
+
+        input:focus::after {
+            width: 100%;
+            /* Линия увеличивается до 100% ширины при фокусе на поле */
+            left: 0;
+            /* Сдвигаем линию влево, чтобы она росла равномерно из центра */
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" placeholder="Введите текст">
+
+</body>
+
+</html>
