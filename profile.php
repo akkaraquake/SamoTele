@@ -3,6 +3,12 @@
     if (!isset($_SESSION['user'])) {
         header('Location: authorization.php');
     }
+
+    // Проверяем наличие фото в базе данных
+    require_once 'php/connect.php';
+    $user_id = $_SESSION['user']['id'];
+    $check_photo = mysqli_query($connect, "SELECT `avatar` FROM `users` WHERE id = '$user_id'");
+    $photo_path = mysqli_fetch_assoc($check_photo)["avatar"]; // получаем путь к файлу
 ?>
 
 
@@ -14,6 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SamoTele</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
@@ -34,6 +41,23 @@
         <div class="avatar">
             <div class="avatar_and_name">
                 <img class="avatar_image" src="images/avatar_frame.png" alt="">
+                <div class="oval_avatar">
+                    <?php
+                        if ($photo_path !== null):
+                            $_SESSION['user']['avatar'] = $photo_path;
+                            echo '<img src="' . $photo_path . '" class="oval_avatar_image ">';
+                        else: 
+                    ?>
+                            <form action="php/send_photo.php" method="post" enctype="multipart/form-data" class="send_photo_form">
+                                <img src="images/upload_icon.png" alt="Иконка загрузки"><br/>
+                                <input type="file" id="upload_avatar" name="avatar" hidden>
+                                <label id="upload_avatar_btn" class="upload_avatar_label">Загрузить фото</label>
+                                <button id="hidden_submit_btn" type="submit" hidden></button>
+                                
+                            </form> 
+                   <?php endif; ?>
+                    </div>
+                
                 <!-- добавить функцию загрузки фото-->
                 <p id="noselect"><?= ($_SESSION['user']['lastname'] . " " . $_SESSION['user']['firstname'])?></p>
                 <script>
@@ -62,6 +86,7 @@
     <footer>
         AkkaraQuake &copy;
     </footer>
+    <script src="upload_photo.js"></script>
 </body>
 
 </html>

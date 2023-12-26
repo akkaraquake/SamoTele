@@ -14,13 +14,15 @@
         print_r($user);
 
         $_SESSION['user'] = [
+            "id" => $user['id'],
             "firstname" => $user['firstname'],
             "lastname" => $user['lastname'],
             "email" => $user['email'],
             "password" => $user['password'],
+            "avatar" => $user['avatar'],
         ];
 
-        print_r($_SESSION['user']);
+        echo empty($_SESSION['user']['avatar']);
 
         header('Location: ../profile.php');
     }

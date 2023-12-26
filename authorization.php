@@ -42,7 +42,7 @@
                             echo $_SESSION['auth_message'];
                         }
                         unset($_SESSION['auth_message']);
-                    ?> 
+                    ?>
                 </label>
             </div>
             <button type="submit" title="Жмяк" name="signup">Войти</button>

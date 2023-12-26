@@ -186,12 +186,73 @@ button:hover {
     align-items: center;
     /*padding-left: 10%; */
     position: relative;
+    z-index: 1;
+}
+
+.avatars {
+    display: flex;
+    position: relative;
 }
 
 .avatar_image {
     width: 300px;
     height: 300px;
     background-repeat: no-repeat;
+    z-index: 1;
+    /* background-image: url(images/almaz.jpg);
+    background-size: 280px 270px;
+    /* background-size: 70% 70%;  */
+    /* border-radius: 50% 50% 60% 60%; */
+    /* background-position: center center;  */
+    /* background-clip: padding-box; */
+    /* background-origin: border-box;
+    background-origin: initial; */ 
+
+}
+
+.oval_avatar {
+    position:absolute;
+    width: 204px;
+    height: 200px;
+    left: 48px;
+    top: 50px;
+}
+
+.oval_avatar_image {
+    width: 204px;
+    height: 200px;
+    border-radius: 52%;
+    /* padding-left: 50px;
+    padding-bottom: 50px; */
+    z-index: 0;
+
+}
+
+.avatar_upload {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: -100;
+    border-radius: 30px 30px 30px 30px;
+}
+
+.upload_avatar_label{
+    color: black;
+    font-family: 'PattayaRegular', serif;
+    text-decoration: none;
+}
+
+.upload_avatar_label:hover {
+    text-decoration: underline;
+}
+
+.send_photo_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    position: relative;
+    z-index: 2;
 }
 
 #noselect {
@@ -212,6 +273,7 @@ button:hover {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: relative;
 }
 
 .info_menu {

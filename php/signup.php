@@ -14,7 +14,7 @@
         if ($password === $password_confirm) {
             mysqli_query($connect, "INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`) 
                                                 VALUES (NULL, '$firstname', '$lastname', '$email', '$password')");
-            header('Location: ../authorization.php');
+            header('Location: ../profile.php');
         }
         else {
             $_SESSION['password_confirm_message'] = "Пароли не совпадают!";
