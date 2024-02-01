@@ -2,17 +2,32 @@
     session_start();
     require_once 'connect.php';
     
-    $photo = $_FILES["avatar"];
-    print_r($_SESSION);
-    print_r($photo);
-    $user_id = $_SESSION['user']['id'];
+    $photo_name = $_FILES["avatar"]["name"];
+    $photo_extenshion = end(explode(".", $_FILES["avatar"]["name"])); // Получаем строку с расширением загруженного фото
+    echo $photo_extenshion;
 
-    $photo_path = 'uploads/' . time() . $_FILES['avatar']['name']; // Путь, куда будет загружено фото
-    move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $photo_path);
+    if ($photo_extenshion == "png" || $photo_extenshion == "jpg" || $photo_extenshion == "jpeg") {
 
-    // обновляем значения поля avatar (вставляем путь к фото)
-    mysqli_query($connect, "UPDATE `users` SET avatar = '$photo_path' WHERE id ='$user_id'"); 
+        $user_id = $_SESSION['user']['id'];
 
-    header("Location: ../profile.php");
+        $photo_path = 'uploads/' . time() . $_FILES['avatar']['name']; // Путь, куда будет загружено фото
+        move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $photo_path);
+
+        // обновляем значения поля avatar (вставляем путь к фото)
+        mysqli_query($connect, "UPDATE `users` SET avatar = '$photo_path' WHERE id ='$user_id'"); 
+
+        // Возвращаемся на страницу, откуда был отправлен запрос на загрузку фото
+        header("Location:" . $_SERVER['HTTP_REFERER'] . "");
+        
+        
+
+    }
+    else {
+
+        $_SESSION["error_photo_extenshion"] = "Формат файла должен быть с расширением png, jpg или jpeg!";
+        header("Location: ../profile.php");
+        
+    }
+    
 
 ?>

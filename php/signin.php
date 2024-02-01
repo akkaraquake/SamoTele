@@ -6,12 +6,10 @@
     $password = $_POST['password'];
 
     $check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE email = '$email' AND password = '$password' ");
-    echo $check_user == true;
+
     if (mysqli_num_rows($check_user) > 0) {
 
-        echo mysqli_num_rows($check_user);
         $user = mysqli_fetch_assoc($check_user);
-        print_r($user);
 
         $_SESSION['user'] = [
             "id" => $user['id'],
@@ -20,9 +18,9 @@
             "email" => $user['email'],
             "password" => $user['password'],
             "avatar" => $user['avatar'],
+            "create_date" => $user['create_date'],
+            "birth_date" => $user['birth_date']
         ];
-
-        echo empty($_SESSION['user']['avatar']);
 
         header('Location: ../profile.php');
     }

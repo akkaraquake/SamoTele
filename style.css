@@ -94,6 +94,8 @@ nav {
 .main_frame_profile {
     align-items: normal;
 }
+
+
 /* Регистрация и авторизация */
 
 .registration_form {
@@ -214,7 +216,6 @@ button:hover {
     position:absolute;
     width: 204px;
     height: 200px;
-    left: 48px;
     top: 50px;
 }
 
@@ -255,7 +256,7 @@ button:hover {
     z-index: 2;
 }
 
-#noselect {
+.fullname {
     border: none;
     font-family: 'PattayaRegular', serif;
     color:black;
@@ -271,7 +272,7 @@ button:hover {
 
 .avatar_and_name {
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
     position: relative;
 }
@@ -329,6 +330,11 @@ progress {
     margin-top: 2%;
 }
 
+.full_profile_and_logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 .logout {
     margin: 0;
     margin-bottom: 3%;
@@ -341,5 +347,300 @@ progress {
     transition: 0.45s;
 }
 
+.full_profile_button {
+    background-color: #0075FF;
+}
+
+.full_profile_button:hover {
+    box-shadow: 0 0 25px #0075FF;
+    transition: 0.45s;
+}
+
+
+
+/* Подробная информация */
+
+.main_frame_fp {
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.avatar_and_name_fp {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.avatar_image_fp {
+    width: 400px;
+    height: 400px;
+
+
+}
+
+.oval_avatar_fp {
+    width: 277px;
+    height: 275px;
+    top: 65px;
+}
+
+.oval_avatar_image_fp {
+    width: 277px;
+    height: 275px;
+    /* left: 11px;
+    top: 11px; */
+    border-radius: 50%;
+}
+
+.send_photo_form_fp {
+    padding-top: 70px;
+}
+
+.fullname_fp {
+    font-size: 42px;
+    margin: 0;
+    white-space: wrap;
+    text-align: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 5%;
+}
+
+.fullname_fp::placeholder {
+    font-size: 30px;
+    color: #0075FF;
+}
+
+.fullname_fp:focus::placeholder {
+    color: black;
+}
+
+.fullname_fp:focus {
+    outline: solid;
+}
+
+.full_info {
+    font-family: 'PattayaRegular', serif;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.full_info_label {
+    font-size: 40px;
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+.message_panel {
+    height: 26px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.success_update {
+    font-size: 22px;
+    color: black;
+    -webkit-text-stroke: 0.25px;
+    margin: 0;
+    border: 4px solid #00FF66;
+    /* background-color: #00FF66; */
+    width: 40%;
+    padding-left: 1%;
+}
+
+.failed_update {
+    font-size: 22px;
+    color: red;
+    -webkit-text-stroke: 0.25px;
+    margin: 0;
+    border: 4px solid red;
+    /* background-color: red; */
+    width: auto;
+    padding: 0 1%;
+}
+
+.info_list {
+    list-style-type: none;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+li {
+    color:#0075FF;
+    position: relative;
+    /* text-decoration: underline; */
+    display: inline-flex;
+}
+
+/* input li:focus {
+    border: #0075FF;
+} */
+
+.info_list > label {
+    text-align: start;
+    color: #0075FF;
+    text-decoration: none;
+    height: 60px;
+}
+
+.email_fp:focus {
+    border: 1px solid black;
+}
+.full_profile_and_logout_fp {
+    padding-top: 10%;
+    justify-content: space-between;
+}
+
+.password {
+    display: inline;
+    position: relative;
+
+}
+
+.password:focus {
+    outline: black;
+}
+
+.input_new_password {
+    border: 1px solid black;
+}
+
+.change_password {
+    color: #23282B;
+    font-size: 20px;
+    margin: 0;
+}
+
+.back {
+    padding-right: 5%;
+}
+
+
+/* Сборник */
+
+.main_frame_sbornik {
+    justify-content: normal;
+}
+
+.function_list {
+    display: flex;
+    height: 12%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.function_frame {
+    display: flex;
+}
+
+#function_menu {
+    background-color: #0075FF;
+    border: 4px solid #0075FF;
+    color: white;
+    font-family: 'PattayaRegular', serif;
+    font-size: 25px;
+    border-radius: 3rem;
+    text-align: center;
+    width: 40%;
+}
+
+.content_list {
+    display: flex;
+}
+
+#function_menu > option {
+    background-color: #ffffff;
+    color: black;
+}
+
+.content_item {
+    display: none;
+    width: 100%;
+    /* margin-top: 2%; */
+
+
+}
+
+.content_item.is-active {
+    display: flex;
+    flex-direction: column;
+}
+
+.table_params {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    /* width: 90%; */
+}
+
+.table_params label {
+    color: black;
+    text-decoration: none;
+    font-family: 'PattayaRegular', serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+#name, #count_words {
+    border: 1px solid #0075FF;
+    color: #0075FF;
+    margin: 0;
+    margin-top: 1%;
+    margin-left: 3%;
+    height: 30px;
+}
+
+.section_name {
+    display: inline;
+    margin-right: 5%;
+}
+
+.table_frame {
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    max-height: 80%;
+}
+
+#table {
+    width: 80%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    
+}
+#table td {
+    border: 2px solid black;
+
+}
+
+#table #table_name {
+    text-align: center;
+}
+
+.get_table_form > label {
+    color: black;
+    text-decoration: none;
+    font-family: 'PattayaRegular', serif;
+    font-size: 25px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.get_table_form {
+    display: flex;
+    height: 20%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 
 
