@@ -1,6 +1,6 @@
-function create_table(rows) {
+function add_rows(rows) {
 
-    const table = document.getElementById('table');
+    const table = document.getElementById('table_to_change');
 
 
     for (let i = 0; i < rows; i++) {
@@ -33,4 +33,3 @@ function create_table(rows) {
         table.appendChild(tr);
     }
 }
-

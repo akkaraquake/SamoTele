@@ -7,7 +7,7 @@ function convert_table() {
 
     for (var i = 0; i < tableRows.length; i++) {
         var rowData = [];
-        var tableCells = tableRows[i].querySelectorAll('td input');
+        var tableCells = tableRows[i].querySelectorAll('td textarea');
 
         for (var j = 0; j < tableCells.length; j++) {
             rowData.push(tableCells[j].value);
@@ -20,24 +20,5 @@ function convert_table() {
     document.getElementById('tableDataInput').value = JSON.stringify(tableData);
 }
 
-
-function getTable() {
-    var jsonData = JSON.parse('<?= $words_to_table; ?>');
-
-    const table = document.getElementById('table');
-
-
-    for (let i = 0; i < jsonData.length; i++) {
-        var tr = document.createElement('tr');
-
-        for (let j = 0; j < 2; j++) {
-            var td = document.createElement('td');
-            td.innerHTML = jsonData[0];
-            tr.appendChild(td);
-        }
-
-        table.appendChild(tr);
-    }
-}
 
 

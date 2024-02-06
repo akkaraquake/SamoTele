@@ -96,20 +96,20 @@
                     <label>Пароль: 
                         <div class="password">
                             <input id="password_input" type="password" value="<?=$_SESSION['user']['password']?>" disabled>
-                            <a href="#" onclick="return show_hide_password(this);"><img src="images/eye_icon.png"></a>
+                            <a href="#" onclick="show_hide_password(document.getElementById('password_input'));"><img src="images/eye_icon.png"></a>
                         </div>    
                     </label>
                     <p class="change_password" hidden>Изменить пароль</p>
                     <label>Новый пароль: 
                         <div class="password">
-                            <input id="new_password_input" type="password" class="input_new_password" name="new_password">
-                            <a id="new_password_eye_icon" href="#" hidden><img src="images/eye_icon.png"></a>
+                            <input id="new_password_input" type="password" class="input_new_password" name="new_password" onfocus="document.getElementById('new_password_eye_icon').removeAttribute('hidden')">
+                            <a id="new_password_eye_icon" href="#" onclick="show_hide_password(document.getElementById('new_password_input'));" hidden><img src="images/eye_icon.png"></a>
                         </div>
                     </label>
                     <label>Подтверждение нового пароля: 
                         <div class="password">
-                            <input id="new_password_input_confirm" type="password" class="input_new_password" name="new_password_confirm">
-                            <a id="new_password_confirm_eye_icon" href="#" hidden><img src="images/eye_icon.png"></a>
+                            <input id="new_password_input_confirm" type="password" class="input_new_password" name="new_password_confirm" onfocus="document.getElementById('new_password_confirm_eye_icon').removeAttribute('hidden')">
+                            <a id="new_password_confirm_eye_icon" href="#" onclick="show_hide_password(document.getElementById('new_password_input_confirm'));" hidden><img src="images/eye_icon.png"></a>
                         </div>
                     </label>
                     
@@ -136,17 +136,12 @@
         </footer>
         <script src="upload_photo.js"></script>
         <script>
-            function show_hide_password(target){
-                var input = document.getElementById('password_input');
-                console.log(input);
+            function show_hide_password(input){
                 if (input.getAttribute('type') == 'password') {
-                    target.classList.add('view');
                     input.setAttribute('type', 'text');
                 } else {
-                    target.classList.remove('view');
                     input.setAttribute('type', 'password');
                 }
-                return false;
             }
         </script>
         <script>
@@ -156,15 +151,11 @@
                 var firstname = document.getElementById('firstname');
                 var lastname = document.getElementById('lastname');
 
-                var firstname_hidden_txtValue = firstname_hidden.value;
-                firstname.value = firstname_hidden_txtValue;
-
-                var lastname_hidden_txtValue = lastname_hidden.value;
-                lastname.value = lastname_hidden_txtValue;
+                firstname.value = firstname_hidden.value;
+                lastname.value = lastname_hidden.value;
 
             }    
         </script>
-        <script src="password_visibility.js"></script>
     </body>
 
 </html>

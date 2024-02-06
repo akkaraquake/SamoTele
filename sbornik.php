@@ -3,6 +3,9 @@
     if (!isset($_SESSION['user'])) {
         header('Location: authorization.php');
     }
+    
+    
+                    
 
 ?>
 
@@ -37,66 +40,94 @@
             <select name="function_menu" id="function_menu">
                 <option class="section_item is-active" value="">Список разделов</option>
                 <option class="section_item" value="">Изменение раздела</option>
-                <option class="section_item" value="">Загрузка раздела</option>
+                <option class="section_item" value="">Содержимое раздела</option>
                 <option class="section_item" value="">Создание раздела</option>
             </select>
         </div>
 
         <div class="function_frame">
             <ul class="content_list">
+                <!-- Содержимое окна после выбора из списка "Список разделов" -->
                 <li class="content_item is-active">
-                    <div class="section_name">
-                        <?php 
-                            // Выводим сообщение об ошибке, если названный раздел уже был создан
-                            if (isset($_SESSION['section_message'])) {
-                                echo '<script>alert("' . $_SESSION['section_message'] . '");</script';
-                            }
-                            unset($_SESSION['section_message']);
-                        ?>
-                        <form action="php/get_table.php" method="get" class="get_table_form">
-                            <label>Название раздела</label>
-                            <input type="text" id="name" name="table_name">
-                            <button type="submit" onclick="$.ajax({
-                                                                    url: 'get_table.php',
-                                                                    type: 'GET',
-                                                                    dataType: 'json',
-                                                                    success: function(data) {
-                                                                        // Обработка данных JSON
-                                                                        getTable();
-                                                                        console.log(data);
-                                                                    },
-                                                                    error: function(xhr, status, error) {
-                                                                        // Обработка ошибок
-                                                                        console.error(error);
-                                                                    }
-                                                                });">
-                    Получить</button>
-                        </form>
+                    
                         
                 </li>
-                <li class="content_item">Содержимое "Изменение раздела"</li>
-                <li class="content_item">Содержимое "Загрузка раздела"</li>
+                <!-- Содержимое окна после выбора из списка "Изменение раздела" -->
                 <li class="content_item">
-                    <form action="php/send_table.php" method="post">
+                    <div class="section_name">
+                        <div class="get_table_form">
+                            <label>Название раздела</label>
+                            <input type="text" id="table_name_to_change">
+                            <button id="get_table_to_change_btn">Получить</button>
+                            
+                        </div>
+                        <br>
+                        <br>
                         <div class="table_params">
-                            <div class="section_name">
-                                <label>Название раздела</label>
-                                <input type="text" id="name" name="table_name">
+                            <div class="section_name_2">
+                                <label>Новое название раздела</label>
+                                <input type="text" id="new_name">
                             </div>
                             <div class="section_count_words">
                                 <label>Количество cтрок</label>
-                                <input type="text" id="count_words">
-                                <button type="button" id="create_table_btn" onclick="create_table(document.getElementById('count_words').value);" style="margin: 0">&plus;</button>
+                                <div>
+                                    <input type="text" id="new_count_words">
+                                    <button type="button" id="plus_button" onclick="add_rows(document.getElementById('new_count_words').value);" disabled>&plus;</button>
+                                    <button type="button" id="minus_button" onclick="remove_rows(document.getElementById('new_count_words').value);" ondblclick="$('.is-active tr').slice().remove();" title="Кликните дважды, чтобы удалить таблицу" disabled>&minus;</button>
+                                </div>
+                                
                             </div>
-                            <input type="hidden" name="tableData" id="tableDataInput">
-                            <button id="submit_table_btn" onclick="convert_table();" type="submit">Сохранить</button>
+                            <input id="tableDataInput_changed" hidden>
+                            <button id="submit_table_to_change_btn" style="margin-left: 100px;">Сохранить</button>
+                        </div>
+                        <div class="table_frame">
+                            <table id="table_to_change">
+                            </table>
+                        </div>
+                    </div> 
+                </li>
+                <!-- Содержимое окна после выбора из списка "Содержимое раздела" -->
+                <li class="content_item">
+                    <div class="section_name">
+                        <div class="get_table_form">
+                            <label>Название раздела</label>
+                            <input type="text" id="table_name_to_view">
+                            <button id="get_table_to_view_btn">Получить</button>
+                            
+                        </div>
+                        <div class="table_frame">
+                            <table id="table_to_view">
+                            </table>
+                        </div>
+                    </div>    
+                        
+                </li>
+                <!-- Содержимое окна после выбора из списка "Создание раздела" -->
+                <li class="content_item">
+                    <div>
+                        <div class="table_params">
+                            <div class="section_name_2">
+                                <label>Название раздела</label>
+                                <input type="text" id="name">
+                            </div>
+                            <div class="section_count_words">
+                                <label>Количество cтрок</label>
+                                <div>
+                                    <input type="text" id="count_words">
+                                    <button type="button" id="plus_button" onclick="create_table(document.getElementById('count_words').value);">&plus;</button>
+                                    <button type="button" id="minus_button" onclick="remove_rows(document.getElementById('count_words').value);" ondblclick="$('.is-active tr').slice().remove();" title="Кликните дважды, чтобы удалить таблицу">&minus;</button>
+                                </div>
+                                
+                            </div>
+                            <input id="tableDataInput" hidden>
+                            <button id="submit_table_btn" style="margin-left: 100px;">Сохранить</button>
                         </div>
                         
-                        <div class="table_frame">
+                        <div class="table_frame" style="width: 100%;">
                             <table id="table">
                             </table>
                         </div>
-                    </form>
+                    </div>
                     
                 </li>
             </ul>
@@ -109,6 +140,12 @@
 
     <script src="sbornikFrame.js"></script>
     <script src="create_table.js"></script>
+    <script src="add_rows.js"></script>
     <script src="convert_table.js"></script>
+    <script src="get_table_to_change.js"></script>
+    <script src="get_table_to_view.js"></script>
+    <script src="remove_table.js"></script>
+    <script src="remove_rows.js"></script>
+    <script src="table_request.js"></script>
 </body>
 </html>

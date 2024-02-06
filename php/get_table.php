@@ -6,17 +6,20 @@
     $table_name = $_GET['table_name'];
 
 
+    $json_data = [];
+
     $get_words = mysqli_query($connect, "SELECT `word`, `word_translate` FROM `words` WHERE `section_name` = '$table_name' AND `user_id` = '$id'");
 
-    $words_list = mysqli_fetch_all($get_words);
-
-    foreach($words_list as $words) {
-        
-        $words_to_table = json_encode($words, JSON_UNESCAPED_UNICODE);
-        print_r(json_encode($words, JSON_UNESCAPED_UNICODE));
-
-
+    while ($row = mysqli_fetch_assoc($get_words)) {
+        $json_data[] = $row;
     }
-    print_r($words_list);
-    header("Location: ../sbornik.php");
+
+    // Если данные не найдены
+    if ($json_data == []) {
+        http_response_code(404);
+    }
+
+    echo json_encode($json_data, JSON_UNESCAPED_UNICODE);
+
+    
 ?>
