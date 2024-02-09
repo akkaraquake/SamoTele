@@ -5,7 +5,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE email = '$email' AND password = '$password' ");
+    $check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE email = '$email' AND password = '$password'");
 
     if (mysqli_num_rows($check_user) > 0) {
 
@@ -28,4 +28,6 @@
         $_SESSION['auth_message'] = "Неверная почта или пароль!";
         header('Location: ../authorization.php');
     }
+
+    mysqli_close($connect);
 ?>

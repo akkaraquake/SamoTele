@@ -1,7 +1,4 @@
-function add_rows(rows) {
-
-    const table = document.getElementById('table_to_change');
-
+function add_rows(table, rows) {
 
     for (let i = 0; i < rows; i++) {
         var tr = document.createElement('tr');

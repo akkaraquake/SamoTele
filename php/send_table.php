@@ -31,24 +31,36 @@
 
     mysqli_stmt_bind_param($stmt, 'sssi', $word, $word_translate, $table_name, $id);
 
+    // Цикл с проверкой на наличие пустых строк в таблице
     foreach($tableData as $words) {
         
         $word = $words[0];
         $word_translate = $words[1];
 
-        // Проверка на наличие пустых строк в таблице
         if ($word == "" || $word_translate == "") {
             http_response_code(400);
-            echo $word;
             die();
         }
-        mysqli_stmt_execute($stmt);
+        
     }
+
+    // Цикл с загрузкой слов в бд
+    foreach($tableData as $words) {
+        
+        $word = $words[0];
+        $word_translate = $words[1];
+
+        mysqli_stmt_execute($stmt);
+        
+    }
+    
 
     mysqli_stmt_close($stmt);
 
     // Переносим название раздела в базу данных
     mysqli_query($connect, "INSERT INTO `sections` (`section_name`, `user_id`) VALUES ('$table_name', '$id')");
 
-    echo http_response_code(202);
+    mysqli_close($connect);
+
+    echo http_response_code(200);
 ?>

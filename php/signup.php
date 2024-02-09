@@ -34,7 +34,7 @@
         header('Location: ../registration.php');
     }
     
-    
+    mysqli_close($connect);
 
 
 ?>

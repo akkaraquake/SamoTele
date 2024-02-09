@@ -21,5 +21,6 @@
 
     echo json_encode($json_data, JSON_UNESCAPED_UNICODE);
 
+    mysqli_close($connect);
     
 ?>

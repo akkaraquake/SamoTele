@@ -21,5 +21,7 @@ function_menu.addEventListener('change', (event) => {
   setActiveClass(function_listItems, event.target.selectedIndex);
   setActiveClass(contentItems, event.target.selectedIndex);
 
+  console.log(event);
+
 });
 

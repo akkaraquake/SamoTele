@@ -2,8 +2,6 @@
 function get_table_to_change(data, rows) {
     const table = document.getElementById('table_to_change');
 
-    table.style.width = "55%";
-
 
     for (let i = 0; i < rows; i++) {
         var tr = document.createElement('tr');

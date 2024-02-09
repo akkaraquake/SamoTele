@@ -68,4 +68,6 @@
     ];
 
     header('Location: ../full_profile.php');
+
+    mysqli_close($connect);
 ?>

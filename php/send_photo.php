@@ -29,5 +29,6 @@
         
     }
     
-
+    mysqli_close($connect);
+    
 ?>

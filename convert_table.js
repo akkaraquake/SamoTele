@@ -1,13 +1,11 @@
-const submit_table_btn = document.getElementById('submit_table_btn');
-
-function convert_table() {
+function convert_table(table) {
     // Получение данных таблицы
     var tableData = [];
-    var tableRows = document.querySelectorAll('#table tr');
+    var tableRows = document.querySelectorAll('.is-active tr');
 
     for (var i = 0; i < tableRows.length; i++) {
         var rowData = [];
-        var tableCells = tableRows[i].querySelectorAll('td textarea');
+        var tableCells = tableRows[i].querySelectorAll('.is-active td textarea');
 
         for (var j = 0; j < tableCells.length; j++) {
             rowData.push(tableCells[j].value);
@@ -17,7 +15,7 @@ function convert_table() {
     }
 
     // Заполнение формы значениями
-    document.getElementById('tableDataInput').value = JSON.stringify(tableData);
+    document.getElementById(table).value = JSON.stringify(tableData);
 }
 
 

@@ -9,6 +9,117 @@
     $user_id = $_SESSION['user']['id'];
     $check_photo = mysqli_query($connect, "SELECT `avatar` FROM `users` WHERE id = '$user_id'");
     $photo_path = mysqli_fetch_assoc($check_photo)["avatar"]; // получаем путь к файлу
+
+    // Получаем текущий статус
+    $get_words = mysqli_query($connect, "SELECT * FROM `words` WHERE user_id = '$user_id'");
+    $count_words = mysqli_num_rows($get_words);
+
+    if ($count_words >= 0 && $count_words <= 100) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 1");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 100;
+    }
+    else if ($count_words > 100 && $count_words <= 250) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 2");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 250;
+    }
+    else if ($count_words > 250 && $count_words <= 500) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 3");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 500;
+    }
+    else if ($count_words > 500 && $count_words <= 1000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 4");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 1000;
+    }
+    else if ($count_words > 1000 && $count_words <= 2000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 5");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 2000;
+    }
+    else if ($count_words > 2000 && $count_words <= 3000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 6");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 3000;
+    }
+    else if ($count_words > 3000 && $count_words <= 4000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 7");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 4000;
+    }
+    else if ($count_words > 4000 && $count_words <= 5000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 8");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 5000;
+    }
+    else if ($count_words > 5000 && $count_words <= 6000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 9");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 6000;
+    }
+    else if ($count_words > 6000 && $count_words <= 7000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 10");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 7000;
+    }
+    else if ($count_words > 7000 && $count_words <= 10000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 11");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 10000;
+    }
+    else if ($count_words > 10000 && $count_words <= 15000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 12");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 15000;
+    }
+    else if ($count_words > 15000 && $count_words <= 20000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 13");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 20000;
+    }
+
+
 ?>
 
 
@@ -28,7 +139,7 @@
         <nav>
             <a class="logo">SamoTэле</a>
             <div class="practise navigation_panel_element"><a class="navigation_panel_element_practise"
-                    href="practise.html">Практика</a>
+                    href="practise.php">Практика</a>
                 <img id="pen" src="images/pen.png" alt="">
             </div>
             <a class="navigation_panel_element" href="sbornik.php">Сборник</a>
@@ -87,10 +198,10 @@
             
         </div>
         <div class="personal_status">
-            <p class="status_name">Начинающий</p>
-            <progress value="10" max="100"></progress>
-            <p class="count_words"><span style="color: #E53F3F" title="Количество слов в словаре">10</span> / 
-                <span style="color: #00FF66" title="Количество слов для получения следующего статуса">100</span></p>
+            <p class="status_name"><?= $_SESSION['user']['status'] ?></p>
+            <progress value="<?= $count_words ?>" max="<?= $_SESSION['user']['max_count'] ?>"></progress>
+            <p class="count_words"><span style="color: #E53F3F" title="Количество слов в словаре"><?= $count_words ?></span> / 
+                <span style="color: #00FF66" title="Количество слов для получения следующего статуса"><?= $_SESSION['user']['max_count'] ?></span></p>
         </div>
         <div class="full_profile_and_logout">
                 <form action="full_profile.php">
@@ -110,6 +221,7 @@
         AkkaraQuake &copy;
     </footer>
     <script src="upload_photo.js"></script>
+    <script src="location.js"></script>
 </body>
 
 </html>

@@ -29,7 +29,7 @@
                     href="practise.html">Практика</a>
                 <img id="pen" src="images/pen.png" alt="">
             </div>
-            <a class="navigation_panel_element" href="sbornik.html">Сборник</a>
+            <a class="navigation_panel_element" href="sbornik.php">Сборник</a>
             <a class="navigation_panel_element" href="profile.php">Профиль</a>
         </nav>
     </header>
@@ -49,8 +49,14 @@
             <ul class="content_list">
                 <!-- Содержимое окна после выбора из списка "Список разделов" -->
                 <li class="content_item is-active">
-                    
-                        
+                    <div class="sections">
+                        <div class="search">
+                            <input id="search_input" type="text" placeholder="Поиск">
+                        </div>
+
+                        <div id="section_list">
+                        </div>
+                    </div> 
                 </li>
                 <!-- Содержимое окна после выбора из списка "Изменение раздела" -->
                 <li class="content_item">
@@ -66,21 +72,21 @@
                         <div class="table_params">
                             <div class="section_name_2">
                                 <label>Новое название раздела</label>
-                                <input type="text" id="new_name">
+                                <input type="text" id="new_table_name">
                             </div>
                             <div class="section_count_words">
                                 <label>Количество cтрок</label>
                                 <div>
-                                    <input type="text" id="new_count_words">
-                                    <button type="button" id="plus_button" onclick="add_rows(document.getElementById('new_count_words').value);" disabled>&plus;</button>
+                                    <input type="text" id="new_count_words" style="margin-top: 0;">
+                                    <button type="button" id="plus_button" onclick="add_rows(document.getElementById('table_to_change'), document.getElementById('new_count_words').value);" disabled>&plus;</button>
                                     <button type="button" id="minus_button" onclick="remove_rows(document.getElementById('new_count_words').value);" ondblclick="$('.is-active tr').slice().remove();" title="Кликните дважды, чтобы удалить таблицу" disabled>&minus;</button>
                                 </div>
                                 
                             </div>
                             <input id="tableDataInput_changed" hidden>
-                            <button id="submit_table_to_change_btn" style="margin-left: 100px;">Сохранить</button>
+                            <button id="submit_table_to_change_btn" style="margin-left: 100px;" disabled>Сохранить</button>
                         </div>
-                        <div class="table_frame">
+                        <div class="table_frame" style="max-height: 418px; width: 100%;">
                             <table id="table_to_change">
                             </table>
                         </div>
@@ -95,7 +101,7 @@
                             <button id="get_table_to_view_btn">Получить</button>
                             
                         </div>
-                        <div class="table_frame">
+                        <div class="table_frame" style="margin-top: 5%; max-height: 569px">
                             <table id="table_to_view">
                             </table>
                         </div>
@@ -108,13 +114,13 @@
                         <div class="table_params">
                             <div class="section_name_2">
                                 <label>Название раздела</label>
-                                <input type="text" id="name">
+                                <input type="text" id="table_name">
                             </div>
                             <div class="section_count_words">
                                 <label>Количество cтрок</label>
                                 <div>
-                                    <input type="text" id="count_words">
-                                    <button type="button" id="plus_button" onclick="create_table(document.getElementById('count_words').value);">&plus;</button>
+                                    <input type="text" id="count_words" style="margin-top: 0;">
+                                    <button type="button" id="plus_button" onclick="add_rows(document.getElementById('table'), document.getElementById('count_words').value);">&plus;</button>
                                     <button type="button" id="minus_button" onclick="remove_rows(document.getElementById('count_words').value);" ondblclick="$('.is-active tr').slice().remove();" title="Кликните дважды, чтобы удалить таблицу">&minus;</button>
                                 </div>
                                 
@@ -139,7 +145,6 @@
     </footer>
 
     <script src="sbornikFrame.js"></script>
-    <script src="create_table.js"></script>
     <script src="add_rows.js"></script>
     <script src="convert_table.js"></script>
     <script src="get_table_to_change.js"></script>
@@ -147,5 +152,9 @@
     <script src="remove_table.js"></script>
     <script src="remove_rows.js"></script>
     <script src="table_request.js"></script>
+    <script src="show_sections.js"></script>
+    <script src="show_section_content.js"></script>
+    <script src="search.js"></script>
+    <script src="location.js"></script>
 </body>
 </html>

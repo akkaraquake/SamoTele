@@ -21,7 +21,7 @@
             <nav>
                 <a class="logo">SamoTэле</a>
                 <div class="practise navigation_panel_element"><a class="navigation_panel_element_practise"
-                        href="practise.html">Практика</a>
+                        href="practise.php">Практика</a>
                     <img id="pen" src="images/pen.png" alt="">
                 </div>
                 <a class="navigation_panel_element" href="sbornik.php">Сборник</a>
@@ -156,6 +156,7 @@
 
             }    
         </script>
+        <script src="location.js"></script>
     </body>
 
 </html>
