@@ -22,7 +22,7 @@
             $date = date("d.m.Y");
             mysqli_query($connect, "INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `create_date`) 
                                                 VALUES (NULL, '$firstname', '$lastname', '$email', '$password', '$date')");
-            header('Location: ../profile.php');
+            header('Location: ../authorization.php');
         }
         else {
             $_SESSION['message'] = "Пароли не совпадают!";

@@ -20,10 +20,10 @@
         <nav>
             <a class="logo">SamoTэле</a>
             <div class="practise navigation_panel_element"><a class="navigation_panel_element_practise"
-                    href="practise.html">Практика</a>
+                    href="practice.php">Практика</a>
                 <img id="pen" src="images/pen.png" alt="">
             </div>
-            <a class="navigation_panel_element" href="sbornik.html">Сборник</a>
+            <a class="navigation_panel_element" href="sbornik.php">Сборник</a>
             <a class="navigation_panel_element" href="profile.php">Профиль</a>
         </nav>
     </header>
@@ -61,7 +61,7 @@
                 </div>
                 <button type="submit" title="Жмяк" name="signup">Зарегистрироваться</button>
                 
-                
+                <a href="authorization.php" class="ref_to_registration">Авторизация</a>
             </form>
        
         

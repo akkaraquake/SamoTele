@@ -7,7 +7,6 @@
     // echo $table_name;
     // Получение данных таблицы из формы
     $tableData = json_decode($_POST['tableData'], true);
-    // print_r($tableData);
 
     // Проверяем наличие раздела в базе данных
     $check_section = mysqli_query($connect, "SELECT * FROM `sections`");
@@ -50,7 +49,7 @@
         $word = $words[0];
         $word_translate = $words[1];
 
-        mysqli_stmt_execute($stmt);
+        mysqli_stmt_execute($stmt) or die("Не удалось загрузить слова в базу данных!");
         
     }
     

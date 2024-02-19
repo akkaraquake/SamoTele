@@ -3,10 +3,6 @@
     if (!isset($_SESSION['user'])) {
         header('Location: authorization.php');
     }
-    
-    
-                    
-
 ?>
 
 
@@ -26,7 +22,7 @@
         <nav>
             <a class="logo">SamoTэле</a>
             <div class="practise navigation_panel_element"><a class="navigation_panel_element_practise"
-                    href="practise.html">Практика</a>
+                    href="practice.php">Практика</a>
                 <img id="pen" src="images/pen.png" alt="">
             </div>
             <a class="navigation_panel_element" href="sbornik.php">Сборник</a>
@@ -51,9 +47,45 @@
                 <li class="content_item is-active">
                     <div class="sections">
                         <div class="search">
-                            <input id="search_input" type="text" placeholder="Поиск">
+                            <input id="search_input" type="text" placeholder="Поиск" title="Нажмите Enter, чтобы найти целиком введенное название">
                         </div>
+                        <img src="images/refresh.png" alt="" onclick="
+                        $('.sections img').attr('src', 'images/refresh_animated.gif'); // Включаем анимацию обновления у иконки
+                        $('#section_list').html(''); // Удаляем таблицу перед получением новой
+                        $.ajax({
+                            url: 'php/get_section_list.php',
+                            type: 'GET',
+                            dataType: 'json',
+                            success: function(sections) {
+                                show_sections(sections, sections.length);
 
+                                // Если произошел переход на страницу по нажатию кнопки 'Выбрать разделы' в 'Практика' 
+                                if (localStorage.getItem('choose_sections_request')) {
+                                    show_buttons();
+                                    $('#show_selected_checkbox').prop('checked', false);
+                                }
+                                
+                                // Чтобы не отображалась горизонтальная полоса, если список разделов пустой
+                                if (sections.length === 0) {
+                                    $('#section_list').css({
+                                        'border-bottom': '0'
+                                    });
+                                }
+
+                                // Останавливаем анимацию обновления у иконки
+                                setTimeout(function() {$('.sections img').attr('src', 'images/refresh.png');}, 1160);
+                                
+                            },
+                            error: function() {
+                                alert('Не удалось загрузить список разделов!');
+                            } 
+                        });">
+                        <div id="show_selected">
+                            <input type="checkbox" id="show_selected_checkbox">
+                            <label id="show_selected_label">Показать выбранное</label>
+                        </div>
+                        <button id="clear_selected_btn">Очистить выбор</button>
+                        <button id="confirm_selected_btn">Подтвердить</button>
                         <div id="section_list">
                         </div>
                     </div> 
@@ -95,6 +127,7 @@
                 <!-- Содержимое окна после выбора из списка "Содержимое раздела" -->
                 <li class="content_item">
                     <div class="section_name">
+                        <a onclick="back_to_section_list()" hidden>&lt;&lt; Список разделов</a>
                         <div class="get_table_form">
                             <label>Название раздела</label>
                             <input type="text" id="table_name_to_view">
@@ -144,17 +177,21 @@
         AkkaraQuake &copy;
     </footer>
 
-    <script src="sbornikFrame.js"></script>
-    <script src="add_rows.js"></script>
-    <script src="convert_table.js"></script>
-    <script src="get_table_to_change.js"></script>
-    <script src="get_table_to_view.js"></script>
-    <script src="remove_table.js"></script>
-    <script src="remove_rows.js"></script>
-    <script src="table_request.js"></script>
-    <script src="show_sections.js"></script>
-    <script src="show_section_content.js"></script>
-    <script src="search.js"></script>
-    <script src="location.js"></script>
+    <script src="js/sbornikFrame.js"></script>
+    <script src="js/add_rows.js"></script>
+    <script src="js/convert_table.js"></script>
+    <script src="js/get_table_to_change.js"></script>
+    <script src="js/get_table_to_view.js"></script>
+    <script src="js/remove_rows.js"></script>
+    <script src="js/table_request.js"></script>
+    <script src="js/show_sections.js"></script>
+    <script src="js/show_selected_sections.js"></script>
+    <script src="js/clear_selected.js"></script>
+    <script src="js/confirm_selected.js"></script>
+    <script src="js/show_section_content.js"></script>
+    <script src="js/back_to_section_list.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/show_and_hide_buttons_for_chosing_sections.js"></script>
 </body>
 </html>

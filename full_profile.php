@@ -21,7 +21,7 @@
             <nav>
                 <a class="logo">SamoTэле</a>
                 <div class="practise navigation_panel_element"><a class="navigation_panel_element_practise"
-                        href="practise.php">Практика</a>
+                        href="practice.php">Практика</a>
                     <img id="pen" src="images/pen.png" alt="">
                 </div>
                 <a class="navigation_panel_element" href="sbornik.php">Сборник</a>
@@ -48,12 +48,6 @@
                             </form> ';
                             
                         else:
-                            // Выводим сообщение об ошибке в случае, если формат фото несоотвествующий
-                            if (isset($_SESSION["error_photo_extenshion"])) {
-                                echo '<script>alert("' . $_SESSION["error_photo_extenshion"] . '")</script>';
-                                unset($_SESSION["error_photo_extenshion"]); 
-                            }
-                                
                     ?>
                             <form action="php/send_photo.php" method="post" enctype="multipart/form-data" class="send_photo_form send_photo_form_fp">
                                 <img src="images/upload_icon.png" alt="Иконка загрузки"><br/>
@@ -80,7 +74,7 @@
                                 echo '<p class="failed_update">' . $_SESSION['message'] . ' ' . '</p>';
                             }
                             elseif ($_SESSION['message'] == "Данные успешно изменены!") {
-                                echo '<p class="success_update">' . '<img src="images/success_icon_4.png">' . ' ' . $_SESSION['message'] . '</p>';
+                                echo '<p class="success_update">' . ' ' . $_SESSION['message'] . '</p>';
                             }
                             unset($_SESSION['message']);
                         }
@@ -91,11 +85,11 @@
                     <input type="text" id="lastname" name="lastname" style="display: none;" value="<?= ($_SESSION['user']['lastname'])?>">
                     <input type="text" id="firstname" name="firstname" style="display: none;" value="<?= ($_SESSION['user']['firstname'])?>">
                     <label>Дата рождения: <input type="date" name="birth_date" value="<?= isset($_SESSION['user']['birth_date']) ? $_SESSION['user']['birth_date'] : ""?>"></label>
-                    <label>Дата создания профиля: <input value="<?=$_SESSION['user']['create_date']?>" disabled></label>
+                    <label>Дата создания профиля: <input value="<?=$_SESSION['user']['create_date']?>" style="background-color: white;" disabled></label>
                     <label>Почта: <input class="email_fp" type="email" value="<?=$_SESSION['user']['email']?>" name="email"></label>
                     <label>Пароль: 
                         <div class="password">
-                            <input id="password_input" type="password" value="<?=$_SESSION['user']['password']?>" disabled>
+                            <input id="password_input" type="password" value="<?=$_SESSION['user']['password']?>" style="background-color: white;" disabled>
                             <a href="#" onclick="show_hide_password(document.getElementById('password_input'));"><img src="images/eye_icon.png"></a>
                         </div>    
                     </label>
@@ -156,7 +150,14 @@
 
             }    
         </script>
-        <script src="location.js"></script>
+        <?php 
+            // Выводим сообщение об ошибке в случае, если формат фото несоотвествующий
+            if (isset($_SESSION["error_photo_extenshion"])) {
+                echo '<script>alert("' . $_SESSION["error_photo_extenshion"] . '")</script>';
+                unset($_SESSION["error_photo_extenshion"]); 
+            }
+        ?>
+        <script src="js/location.js"></script>
     </body>
 
 </html>

@@ -4,7 +4,7 @@
     
     $photo_name = $_FILES["avatar"]["name"];
     $photo_extenshion = end(explode(".", $_FILES["avatar"]["name"])); // Получаем строку с расширением загруженного фото
-    echo $photo_extenshion;
+
 
     if ($photo_extenshion == "png" || $photo_extenshion == "jpg" || $photo_extenshion == "jpeg") {
 
@@ -25,7 +25,7 @@
     else {
 
         $_SESSION["error_photo_extenshion"] = "Формат файла должен быть с расширением png, jpg или jpeg!";
-        header("Location: ../profile.php");
+        header("Location:" . $_SERVER['HTTP_REFERER'] . "");
         
     }
     

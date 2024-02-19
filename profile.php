@@ -2,6 +2,7 @@
     session_start();
     if (!isset($_SESSION['user'])) {
         header('Location: authorization.php');
+        die();
     }
 
     // Проверяем наличие фото в базе данных
@@ -118,6 +119,14 @@
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 20000;
     }
+    else if ($count_words > 20000) {
+        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 14");
+
+        $status = mysqli_fetch_assoc($get_status);
+
+        $_SESSION['user']['status'] = $status['status'];
+        $_SESSION['user']['max_count'] = 40000;
+    }
 
 
 ?>
@@ -139,7 +148,7 @@
         <nav>
             <a class="logo">SamoTэле</a>
             <div class="practise navigation_panel_element"><a class="navigation_panel_element_practise"
-                    href="practise.php">Практика</a>
+                    href="practice.php">Практика</a>
                 <img id="pen" src="images/pen.png" alt="">
             </div>
             <a class="navigation_panel_element" href="sbornik.php">Сборник</a>
@@ -168,13 +177,7 @@
                                 <button id="hidden_submit_btn" type="submit" hidden></button>  
                             </form> ';
                             
-                        else:
-                            // Выводим сообщение об ошибке в случае, если формат фото несоотвествующий
-                            if (isset($_SESSION["error_photo_extenshion"])) {
-                                echo '<script>alert("' . $_SESSION["error_photo_extenshion"] . '")</script>';
-                                unset($_SESSION["error_photo_extenshion"]); 
-                            }
-                             
+                        else:       
                     ?>
                             <form action="php/send_photo.php" method="post" enctype="multipart/form-data" class="send_photo_form">
                                 <img src="images/upload_icon.png" alt="Иконка загрузки"><br/>
@@ -184,24 +187,18 @@
                                 
                             </form> 
                    <?php endif; ?>
-                    </div>
+                </div>
                 
-                <p id="fullname" class="fullname"><?= ($_SESSION['user']['lastname'] . " " . $_SESSION['user']['firstname'])?></p>
-                <script>
-                    document.getElementById('fullname').addEventListener('focus', function () {
-                        document.getElementById('fullname').blur();
-                    });
-                    document.getElementById('fullname').style.cursor = 'default';
-                </script>
+                <p id="fullname" class="fullname" style="cursor: default;"><?= ($_SESSION['user']['lastname'] . " " . $_SESSION['user']['firstname'])?></p>
             </div>
             
             
         </div>
         <div class="personal_status">
             <p class="status_name"><?= $_SESSION['user']['status'] ?></p>
-            <progress value="<?= $count_words ?>" max="<?= $_SESSION['user']['max_count'] ?>"></progress>
-            <p class="count_words"><span style="color: #E53F3F" title="Количество слов в словаре"><?= $count_words ?></span> / 
-                <span style="color: #00FF66" title="Количество слов для получения следующего статуса"><?= $_SESSION['user']['max_count'] ?></span></p>
+            <progress class="status_progress" value="<?= $count_words ?>" max="<?= $_SESSION['user']['max_count'] ?>"></progress>
+            <p class="count_words"><span style="color: #01ee60" title="Количество слов в словаре"><?= $count_words ?></span> / 
+                <span style="color: #E53F3F" title="Количество слов для получения следующего статуса"><?= $_SESSION['user']['max_count'] ?></span></p>
         </div>
         <div class="full_profile_and_logout">
                 <form action="full_profile.php">
@@ -220,8 +217,15 @@
     <footer>
         AkkaraQuake &copy;
     </footer>
-    <script src="upload_photo.js"></script>
-    <script src="location.js"></script>
+    <?php 
+        // Выводим сообщение об ошибке в случае, если формат фото несоотвествующий
+        if (isset($_SESSION["error_photo_extenshion"])) {
+            echo '<script>alert("' . $_SESSION["error_photo_extenshion"] . '")</script>';
+            unset($_SESSION["error_photo_extenshion"]); 
+        }
+    ?>
+    <script src="js/upload_photo.js"></script>
+    <script src="js/location.js"></script>
 </body>
 
 </html>
