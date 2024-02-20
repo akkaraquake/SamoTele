@@ -189,11 +189,12 @@
                    <?php endif; ?>
                 </div>
                 
-                <p id="fullname" class="fullname" style="cursor: default;"><?= ($_SESSION['user']['lastname'] . " " . $_SESSION['user']['firstname'])?></p>
+                
             </div>
-            
+            <p id="fullname" class="fullname" style="cursor: default;"><?= ($_SESSION['user']['lastname'] . " " . $_SESSION['user']['firstname'])?></p>
             
         </div>
+        
         <div class="personal_status">
             <p class="status_name"><?= $_SESSION['user']['status'] ?></p>
             <progress class="status_progress" value="<?= $count_words ?>" max="<?= $_SESSION['user']['max_count'] ?>"></progress>
@@ -205,7 +206,7 @@
                     <button type="submit" class="logout full_profile_button">Подробная информация</button>
                 </form>
                 <form action="php/logout.php">
-                    <button type="submit" class="logout">Выйти из профиля</button>
+                    <button type="submit" class="logout" onclick="localStorage.clear();">Выйти из профиля</button>
                 </form>
             </div>
         
