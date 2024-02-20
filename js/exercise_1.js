@@ -64,7 +64,7 @@ function check_answer() {
     user_answer_list[count_answers - 1] = input_translate.value;
 
     input_translate.disabled = true;
-    this.hidden = true;
+    confirm_translate_btn.style.visibility = "hidden";
     setTimeout(() => {go_to_next_word_btn.disabled = false}, 500);
 }
 
@@ -129,7 +129,7 @@ function go_next(count_answers) {
 
     right_answer.style.visibility = "hidden";
 
-    confirm_translate_btn.hidden = false;
+    confirm_translate_btn.style.visibility = "visible";
 
     go_to_next_word_btn.disabled = true;
 

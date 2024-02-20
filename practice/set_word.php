@@ -43,8 +43,10 @@
                 <div class="exercise_area">
                     <p id="word">слово</p>
                     <label id="right_answer">Правильный ответ: <span id="right_translate">word</span></label>
-                    <input type="text" id="input_translate" title="Для подтверждения ответа можно использовать Enter" autofocus>
-                    <button id="confirm_translate_btn" title="Подтвердить ответ"><span id="confirm_translate_checkbox"></span></button>
+                    <div class="input_translate_and_confirm_answer">
+                        <input type="text" id="input_translate" title="Для подтверждения ответа можно использовать Enter" autofocus>
+                        <button id="confirm_translate_btn" title="Подтвердить ответ"><span id="confirm_translate_checkbox"></span></button>
+                    </div>
                     <button id="go_to_next_word" title="Для нажатия этой кнопки можно использовать Enter" disabled>Дальше &gt;&gt;</button>
 
                 </div>
