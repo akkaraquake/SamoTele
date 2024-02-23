@@ -918,6 +918,11 @@ li {
     color: #0075FF;
     font-size: 22px;
     justify-content: center;
+    max-height: 500px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .selected_sections_list:hover #dropdown_list {
@@ -1077,9 +1082,6 @@ li {
 }
 
 #confirm_translate_btn {
-    /* top: 550px;
-    right: 660px;
-    position: absolute; */
     margin: 0 20px;
 }
 
@@ -1113,6 +1115,3 @@ li {
 #good::after {
     content: '\2714';
 }
-
-
-
