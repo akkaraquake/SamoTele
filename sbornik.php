@@ -118,7 +118,7 @@
                             <input id="tableDataInput_changed" hidden>
                             <button id="submit_table_to_change_btn" style="margin-left: 100px;" disabled>Сохранить</button>
                         </div>
-                        <div class="table_frame" style="max-height: 418px; width: 100%;">
+                        <div class="table_frame" style="max-height: 300px; width: 100%;">
                             <table id="table_to_change">
                             </table>
                         </div>
@@ -134,7 +134,7 @@
                             <button id="get_table_to_view_btn">Получить</button>
                             
                         </div>
-                        <div class="table_frame" style="margin-top: 5%; max-height: 569px">
+                        <div class="table_frame" style="margin-top: 5%; max-height: 400px">
                             <table id="table_to_view">
                             </table>
                         </div>

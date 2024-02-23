@@ -90,8 +90,8 @@ nav {
 .main_frame {
     background-color: white;
     border-radius: 3rem;
-    height: 835px;
-    max-height: 835px;
+    height: 620px;
+    max-height: 620px;
     margin: 1% 11% 0% 11%;
     display: flex;
     flex-direction: column;
@@ -163,7 +163,7 @@ button {
     margin: 40px 3%;
     border-radius: 10px;
     font-family: 'PattayaRegular', serif;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
     color: white;
     background-color: #0075FF;
@@ -228,8 +228,8 @@ button:hover {
 }
 
 .avatar_image {
-    width: 320px;
-    height: 420px;
+    width: 300px;
+    height: 300px;
     background-repeat: no-repeat;
     z-index: 1;
     /* background-image: url(images/almaz.jpg);
@@ -247,13 +247,13 @@ button:hover {
     position:absolute;
     width: 204px;
     height: 250px;
-    top: 67px;
+    top: 50px;
     left: 51px;
 }
 
 .oval_avatar_image {
-    width: 218px;
-    height: 300px;
+    width: 204px;
+    height: 200px;
     border-radius: 52%;
     /* padding-left: 50px;
     padding-bottom: 50px; */
@@ -337,7 +337,7 @@ button:hover {
 }
 .status_name {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
+    font-size: 25px;
     margin: 0;
 }
 
@@ -358,7 +358,7 @@ button:hover {
 
 .count_words {
     font-family: 'PattayaRegular', serif;
-    font-size: 35px;
+    font-size: 25px;
     margin-top: 2%;
 }
 
@@ -370,7 +370,7 @@ button:hover {
 .logout {
     margin: 0;
     margin-bottom: 3%;
-    font-size: 25px;
+    font-size: 20px;
     background-color: #E53F3F;
 }
 
@@ -409,23 +409,21 @@ button:hover {
 
 .avatar_image_fp {
     width: 400px;
-    height: 530px;
-
-
+    height: 400px;
 }
 
 .oval_avatar_fp {
     width: 277px;
     height: 275px;
-    top: 80px;
-    left: 72px;
+    top: 65px;
+    left: 62px;
 }
 
 .oval_avatar_image_fp {
     width: 277px;
-    height: 380px;
-    /* left: 11px;
-    top: 11px; */
+    height: 275px;
+    /* left: 11px; */
+    /* top: 11px;  */
     border-radius: 50%;
 }
 
@@ -721,7 +719,7 @@ li {
     align-items: center;
     margin-right: 50px;
     width: 400px;
-    max-height: 580px;
+    max-height: 420px;
     overflow-y: scroll;
     font-family: 'PattayaRegular', 'serif';
     font-size: 32px;
@@ -800,7 +798,7 @@ li {
     font-family: 'PattayaRegular', 'serif';
     font-size: 22px;
     color: #0075FF;
-    left: -350px;
+    left: -300px;
     top: 10px;
     cursor: pointer;
 }
@@ -817,7 +815,7 @@ li {
     display: flex;
     justify-content: center;
     overflow-y: scroll;
-    max-height: 514px;
+    max-height: 350px;
     /* margin-bottom: 5%; */
     width: 180%;
 }
@@ -871,7 +869,7 @@ li {
 }
 
 #choose_sections_and_exercise_label {
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
 }
 
@@ -918,7 +916,7 @@ li {
     color: #0075FF;
     font-size: 22px;
     justify-content: center;
-    max-height: 500px;
+    max-height: 300px;
     overflow-y: scroll;
     &::-webkit-scrollbar {
         display: none;
@@ -958,7 +956,7 @@ li {
 
 .exercises {
     display: flex;
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
     margin-top: 80px;
     justify-content: space-evenly;
@@ -986,7 +984,7 @@ li {
 /* Упражнения */
 
 #input_translate_label {
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
 }
 
@@ -1040,8 +1038,8 @@ li {
 }
 
 #word {
-    margin-top: 125px;
-    font-size: 70px;
+    /* margin-top: 125px; */
+    font-size: 60px;
     /* text-align: center; */
     margin-bottom: 10px;
 }
@@ -1096,12 +1094,12 @@ li {
 }
 
 #results_table_label {
-    font-size: 50px;
+    font-size: 40px;
     margin: 40px 0;
 }
 
 #answers_status {
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 0;
     margin-bottom: 40px;
     color: #0075FF;

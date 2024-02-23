@@ -54,7 +54,7 @@
             <div id="results">
                 <p id="results_table_label">Таблица результатов</p>
                 <p id="answers_status">Верных ответов: <span id="count_right_answers"></span> / <span id="count_all_answers"></span></p>
-                <div class="table_frame" style="width: 80%; max-height: 450px;">
+                <div class="table_frame" style="width: 80%; max-height: 300px;">
                     <table id="table_to_view">
                         <tr style="text-align: center; font-size: 30px; font-weight: bold">
                             <td style="color: #0075FF;">???</td>
