@@ -2,7 +2,7 @@
 ### <p align="center">Установка и запуск на локальном сервере</p>
 >Для Windows
 >   
-1. Установите приложение [OpenServer](https://ospanel.io/)
+1. Установите и запустите приложение [Open Server Panel](https://ospanel.io/)
 2. Нажмите на ![image](https://github.com/akkaraquake/SamoTele/assets/91074883/27fb6e50-38b3-4026-bd0f-2a9ee321a7ec) (находится на нижней панели или в скрытых значках)
 
 3. Перейдите в `Настройки`  
@@ -16,12 +16,12 @@
 ![image](https://github.com/akkaraquake/SamoTele/assets/91074883/87a07856-b8d9-42c8-b577-3d6b9e050666)
 6. Создайте папку `samotele` (папку `localhost` можно удалить)
 ![image](https://github.com/akkaraquake/SamoTele/assets/91074883/79beb448-de74-4dfd-9b1d-41f88091ab2d)
-7. Скачайте архив проекта  
+7. Скачайте архив проекта с одной из веток: `master` (для монитора) или `laptop` (для ноутбука)
 ![скачивание архива проекта SamoTэле — сделано в Clipchamp_1708792011867](https://github.com/akkaraquake/SamoTele/assets/91074883/61ce4c0b-6033-4388-b9fd-84802d38ed9d)
 8. Скопируйте содержимое папки `SamoTele-master` (если скачали с ветки master) или `SamoTele-laptop` (если скачали с ветки laptop)
 9. Вставьте в папку `samotele`
 ![image](https://github.com/akkaraquake/SamoTele/assets/91074883/b18e8f5f-0758-480c-84fa-0c00bb4259f9)
-10. Зайдите снова в `Настройки` Openserver'а в раздел `Домены` и сделайте следующее:
+10. Зайдите снова в `Настройки` раздел `Домены` и сделайте следующее:
 ![создание домена SamoTele com — сделано в Clipchamp_1708795052362](https://github.com/akkaraquake/SamoTele/assets/91074883/1e209a8a-ee30-4881-94f8-901d32a1daa5)
 11. Запустите сервер  
 ![image](https://github.com/akkaraquake/SamoTele/assets/91074883/fc6b1c36-e89c-48c0-9aed-a18f78c70111)
