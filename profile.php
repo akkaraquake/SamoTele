@@ -16,118 +16,134 @@
     $count_words = mysqli_num_rows($get_words);
 
     if ($count_words >= 0 && $count_words <= 100) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 1");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 1");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 100;
     }
     else if ($count_words > 100 && $count_words <= 250) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 2");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 2");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 250;
     }
     else if ($count_words > 250 && $count_words <= 500) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 3");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 3");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 500;
     }
     else if ($count_words > 500 && $count_words <= 1000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 4");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 4");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 1000;
     }
     else if ($count_words > 1000 && $count_words <= 2000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 5");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 5");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 2000;
     }
     else if ($count_words > 2000 && $count_words <= 3000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 6");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 6");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 3000;
     }
     else if ($count_words > 3000 && $count_words <= 4000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 7");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 7");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 4000;
     }
     else if ($count_words > 4000 && $count_words <= 5000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 8");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 8");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 5000;
     }
     else if ($count_words > 5000 && $count_words <= 6000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 9");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 9");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 6000;
     }
     else if ($count_words > 6000 && $count_words <= 7000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 10");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 10");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 7000;
     }
     else if ($count_words > 7000 && $count_words <= 10000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 11");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 11");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 10000;
     }
     else if ($count_words > 10000 && $count_words <= 15000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 12");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 12");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 15000;
     }
     else if ($count_words > 15000 && $count_words <= 20000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 13");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 13");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 20000;
     }
     else if ($count_words > 20000) {
-        $get_status = mysqli_query($connect, "SELECT `status` FROM `statuses` WHERE status_id = 14");
+        $get_status = mysqli_query($connect, "SELECT * FROM `statuses` WHERE status_id = 14");
 
         $status = mysqli_fetch_assoc($get_status);
 
+        $_SESSION['user']['status_id'] = $status['status_id'];
         $_SESSION['user']['status'] = $status['status'];
         $_SESSION['user']['max_count'] = 40000;
     }
-
+    // Устанавливаем id статуса в таблицу `users` бд
+    $status_id = $_SESSION['user']['status_id'];
+    mysqli_query($connect, "UPDATE `users` SET status_id = '$status_id' WHERE id = '$user_id'");
 
 ?>
 

@@ -158,6 +158,7 @@
             }
         ?>
         <script src="js/location.js"></script>
+        <script src="js/upload_photo.js"></script>
     </body>
 
 </html>

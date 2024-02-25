@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 20 2024 г., 02:48
+-- Время создания: Фев 25 2024 г., 17:45
 -- Версия сервера: 5.7.39
 -- Версия PHP: 7.2.34
 
@@ -78,7 +78,8 @@ CREATE TABLE `users` (
   `password` varchar(300) DEFAULT NULL,
   `avatar` varchar(500) DEFAULT NULL,
   `create_date` varchar(11) DEFAULT NULL,
-  `birth_date` varchar(11) DEFAULT NULL
+  `birth_date` varchar(11) DEFAULT NULL,
+  `status_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -103,7 +104,8 @@ CREATE TABLE `words` (
 -- Индексы таблицы `sections`
 --
 ALTER TABLE `sections`
-  ADD PRIMARY KEY (`section_id`);
+  ADD PRIMARY KEY (`section_id`),
+  ADD KEY `user_id_fk` (`user_id`);
 
 --
 -- Индексы таблицы `statuses`
@@ -115,13 +117,15 @@ ALTER TABLE `statuses`
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `status_id_fk` (`status_id`);
 
 --
 -- Индексы таблицы `words`
 --
 ALTER TABLE `words`
-  ADD PRIMARY KEY (`word_id`);
+  ADD PRIMARY KEY (`word_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -131,7 +135,7 @@ ALTER TABLE `words`
 -- AUTO_INCREMENT для таблицы `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT для таблицы `statuses`
@@ -143,13 +147,35 @@ ALTER TABLE `statuses`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT для таблицы `words`
 --
 ALTER TABLE `words`
-  MODIFY `word_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+  MODIFY `word_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `sections`
+--
+ALTER TABLE `sections`
+  ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `status_id_fk` FOREIGN KEY (`status_id`) REFERENCES `statuses` (`status_id`);
+
+--
+-- Ограничения внешнего ключа таблицы `words`
+--
+ALTER TABLE `words`
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

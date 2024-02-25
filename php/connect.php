@@ -4,3 +4,4 @@
     if (!$connect) {
         die("Connection error! :(");
     }
+?>
