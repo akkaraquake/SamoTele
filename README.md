@@ -25,13 +25,18 @@
 ![создание домена SamoTele com — сделано в Clipchamp_1708795052362](https://github.com/akkaraquake/SamoTele/assets/91074883/1e209a8a-ee30-4881-94f8-901d32a1daa5)
 11. Запустите сервер  
 ![image](https://github.com/akkaraquake/SamoTele/assets/91074883/fc6b1c36-e89c-48c0-9aed-a18f78c70111)
-12. Откройте сайт, нажав ![image](https://github.com/akkaraquake/SamoTele/assets/91074883/9a5e8f04-5e62-4a13-bafc-a2f990e5a52c) → `Мои проекты` → `SamoTele.com`
-
-
-
-
-
-
+12. Откройте `PhpMyAdmin`, нажав ![image](https://github.com/akkaraquake/SamoTele/assets/91074883/aa65f0ce-3d08-49e6-8c41-81230de45c3d) → `Дополнительно` → `PhpMyAdmin`
+13. В окне авторизации введите следующее:  
+![image](https://github.com/akkaraquake/SamoTele/assets/91074883/722df5de-f96d-43ac-aa2e-8c263b53de41)
+14. После входа на левой панели нажмите `Создать БД`  
+![image](https://github.com/akkaraquake/SamoTele/assets/91074883/ff0721ce-c0c5-4728-b6e4-1f2ef5787113)
+15. Cоздайте базу данных `SamoTele`  
+![image](https://github.com/akkaraquake/SamoTele/assets/91074883/5a388685-edf4-4ca2-8e53-775a4ad2c8da)
+16. Далее нажмите `Импорт` → `Выберите файл`. Загрузите файл `SamoTele.sql` из папки `samotele`, внизу страницы нажмите `Импорт`.
+![создание бд SamoTele — сделано в Clipchamp_1708856794440](https://github.com/akkaraquake/SamoTele/assets/91074883/5542937e-de7b-4bcf-88a9-6b1d6986010d)
+17. Откройте сайт, нажав ![image](https://github.com/akkaraquake/SamoTele/assets/91074883/9a5e8f04-5e62-4a13-bafc-a2f990e5a52c) → `Мои проекты` → `SamoTele.com`
+18. Если все прошло успешно, увидите следующее:
+![image](https://github.com/akkaraquake/SamoTele/assets/91074883/b49d8c0b-c68a-4059-8ba7-9cc2eff91fcb)
 
 
    
