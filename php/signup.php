@@ -20,8 +20,8 @@
     if ((mysqli_num_rows($check_email)) == 0) {
         if ($password === $password_confirm) {
             $date = date("d.m.Y");
-            mysqli_query($connect, "INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `create_date`) 
-                                                VALUES (NULL, '$firstname', '$lastname', '$email', '$password', '$date')");
+            mysqli_query($connect, "INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `create_date`, `status_id`) 
+                                                VALUES (NULL, '$firstname', '$lastname', '$email', '$password', '$date', 1)");
             header('Location: ../authorization.php');
         }
         else {

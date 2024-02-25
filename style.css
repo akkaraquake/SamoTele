@@ -346,11 +346,17 @@ button:hover {
     -webkit-appearance: none;
     width: 50%;
     height: 20px;
+    background: #E53F3F;
+    border-radius: 10px;
     &::-webkit-progress-bar {
         background: #E53F3F;
         border-radius: 10px;
     }
     &::-webkit-progress-value {
+        background: #01ee60;
+        border-radius: 10px;
+    }
+    &::-moz-progress-bar {
         background: #01ee60;
         border-radius: 10px;
     }
@@ -726,10 +732,7 @@ li {
     border-left: 3px ridge #0075FF;
     border-right: 3px ridge #0075FF;
     border-bottom: 3px ridge #0075FF;
-}
-
-#section_list::-webkit-scrollbar {
-    display: none;
+    scrollbar-width: none;
 }
 
 .section_list_element {
@@ -918,9 +921,7 @@ li {
     justify-content: center;
     max-height: 300px;
     overflow-y: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
+    scrollbar-width: none;
 }
 
 .selected_sections_list:hover #dropdown_list {
@@ -998,7 +999,10 @@ li {
 #exercise_status_progress {
     height: 10px;
     width: 40%;
+    background: rgb(184, 184, 184);
     border-radius: 10px;
+    box-shadow: 0 0 15px gray inset;
+    transition: 1.5s;
     &::-webkit-progress-bar {
         background: rgb(184, 184, 184);
         border-radius: 10px;
@@ -1009,7 +1013,12 @@ li {
         border-radius: 10px;
         box-shadow: 0 0 15px #0075FF, 0 0 2px #0075FF, 0 0 15px #0075FF;
         transition: 1.5s;
-        
+    } 
+    &::-moz-progress-bar {
+        background: #0075FF;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #0075FF, 0 0 2px #0075FF, 0 0 15px #0075FF;
+        transition: 1.5s;
     } 
 }
 

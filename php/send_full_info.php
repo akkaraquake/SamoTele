@@ -11,8 +11,6 @@
 
     $id = $_SESSION['user']['id'];
 
-    print_r($_POST);
-    echo gettype($_POST['birth_date']);
     // Проверка переменных на пустоту
     if(empty($firstname) || empty($lastname) || empty($birth_date) || empty($email)) {
         $_SESSION['message'] = "Заполните все поля!";
@@ -52,7 +50,7 @@
     }
 
     // Обновляем данные
-    $check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE id = '$id' ");
+    $check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE id = '$id'");
 
     $user = mysqli_fetch_assoc($check_user);
 
